@@ -1,0 +1,39 @@
+.Header{
+    height: 7vh;
+    outline: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    background-color: #121217;
+    border-bottom:1px solid #10121a;
+    justify-content: space-between;
+
+    h2{
+        padding-left: 1rem;
+        color: #CCC;
+    }
+
+    .cabecera{
+        display: flex;
+        align-items: center;
+    }
+}
+
+.divv{
+
+    svg{
+        color:#929aa9;
+    }
+}
+
+.circulo{
+    width: 2rem;
+    height: 2rem;
+    outline: 1px solid #000;
+    background-color: #000;
+    border-radius: 4rem;
+    display: flex;
+    outline: 2px solid #ccc;
+    
+}

@@ -1,0 +1,68 @@
+/* Menú lateral derecho */
+.MenuR {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  padding: 0 40px;
+  border-radius: 4rem;
+  width: 0px; 
+  background-color: #1e1e1e;
+  position: fixed;
+  right: 0;
+  margin:0 .7rem ;
+  transform: translateX(112%); /* Inicialmente oculto */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cuando el menú debe mostrarse */
+.MenuR.show {
+  transform: translateX(0);
+}
+
+/* Estilos del contenido interno */
+.UL2 {
+  width: 100%;
+  height: 100%;
+  padding: 0 34px;
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #21252d;
+  /* background-color: red; */
+  border-radius: 2rem;
+}
+
+/* Ítems de la lista */
+.LI2 {
+  padding: 0 1rem;
+  list-style: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Íconos dentro de los elementos */
+.LI2 svg {
+  width: 35px;
+  height: 40px;
+  color: #929aa9;
+  /* background-color: red; */
+}
+
+/* Efecto hover en los ítems */
+.LI2:hover {
+  background: #555;
+  border-radius: 2rem;
+}
+
+/* Área invisible que detecta el cursor en el borde derecho */
+.hover-area2 {
+  position: absolute;
+  top: 152px;
+  right: 0px;
+  width: 40px; /* Área de detección */
+  height: 350px;
+  background: transparent;
+}
