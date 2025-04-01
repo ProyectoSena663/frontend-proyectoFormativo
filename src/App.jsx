@@ -1,13 +1,31 @@
 import './App.css'
 import { Header } from './header/Header'
+import { MenuL } from './menuL/MenuL'
+import { MenuR } from './menuR/MenuR'
 import { Prototipo } from './prototipo/Prototipo'
+import { ShirtScene } from "./ShirtModel/ShirtModel"
+
+
+// export const App = () => {
+
+//   return (
+//     <div className='App'>
+//       <Header/>
+//       <Prototipo/>
+//     </div>
+//   )
+// }
+
 
 export const App = () => {
 
   return (
     <div className='App'>
       <Header/>
-      <Prototipo/>
+      {/* <Prototipo /> */}
+      <MenuL />
+      <MenuR />
+      <ShirtScene/>
     </div>
   )
 }

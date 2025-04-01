@@ -8,9 +8,10 @@
   width: 0px; 
   background-color: #1e1e1e;
   position: fixed;
+  z-index: 99999;
   right: 0;
   margin:0 .7rem ;
-  transform: translateX(112%); /* Inicialmente oculto */
+  transform: translateX(110%); /* Inicialmente oculto */
   transition: transform 0.5s ease-in-out;
 }
 
@@ -60,11 +61,11 @@
 /* Área invisible que detecta el cursor en el borde derecho */
 .hover-area2 {
   position: absolute;
+  z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
   top: 152px;
-  right: 0px;
-  width: 40px; /* Área de detección */
+  right: 0;
   height: 350px;
-  background: transparent;
+  background: red;
 }
 
 

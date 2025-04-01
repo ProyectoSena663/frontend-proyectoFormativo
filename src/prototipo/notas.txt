@@ -1,0 +1,4 @@
+En la fecha 31/03/2025.
+- Voy a comenzar con la implementacion del la ecena 3D de la pagina.
+- Para comenzar vamos instalar todas las dependencias con esto npm install @react-three/fiber @react-three/drei three.
+- Continuare con la creacion de los componentes necesarios para realizar la ecena 3D.

@@ -6,6 +6,7 @@
   background-color: #1e1e1e; /* Color de fondo oscuro */
   position: fixed; /* Posicionamiento absoluto en la pantalla */
   transform: translateY(-50%);
+  z-index: 999999;
   top: 50%; /* Ubicación en la mitad de la pantalla */
   display: flex; /* Usa flexbox para alinear contenido */
   justify-content: center; /* Centra los elementos horizontalmente */
@@ -50,7 +51,7 @@
   left: 0; /* Pegado al borde izquierdo */
   width: 30px; /* Define un área de detección estrecha */
   height: 500px;
-  background: transparent; /* Invisible para el usuario */
+  background: red; /* Invisible para el usuario */
 }
 
 /* 🔹 Clase para mostrar el menú lateral derecho */
