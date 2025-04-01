@@ -42,7 +42,7 @@ export const MenuL = () => {
             <button className="bt" style={{backgroundColor: "blue"}}></button>
             <button className="bt" style={{backgroundColor: "green"}} ></button>
             <button className="bt" style={{backgroundColor: "red"}} ></button>
-            <button className="bt" style={{backgroundColor: "black"}} ></button>
+            <input type="color" className="bt" name="col" id="col" />
             <button className = "close" onClick={() => setModalOpen(false)}>X</button>
             </div>
             <div className="editor"></div>
