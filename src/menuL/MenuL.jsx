@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { ShirtScene } from "../Shirt/ShirtEscene";
 import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
 import "./MenuL.css";
 
 export const MenuL = () => {
+  const [color, setColor] = useState("#ffffff"); // Estado para el color
   const [visible, setVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen2, setModalOpen2] = useState(false);
@@ -42,7 +44,7 @@ export const MenuL = () => {
             <button className="bt" style={{backgroundColor: "blue"}}></button>
             <button className="bt" style={{backgroundColor: "green"}} ></button>
             <button className="bt" style={{backgroundColor: "red"}} ></button>
-            <input type="color" className="bt" name="col" id="col" />
+            <input type="color" className="bt" name="col" id="col" value={color} onChange={(e => setColor(e.target.value))}/>
             <button className = "close" onClick={() => setModalOpen(false)}>X</button>
             </div>
             <div className="editor"></div>
@@ -174,6 +176,9 @@ export const MenuL = () => {
           </div>
         </div>
       )}
+
+      {/* Pasamos el color a la escena */}
+      <ShirtScene color={color} />
     </div>
   );
 };

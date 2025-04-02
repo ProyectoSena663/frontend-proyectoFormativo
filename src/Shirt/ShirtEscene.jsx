@@ -1,21 +1,10 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls} from "@react-three/drei";
+import ShirtModel  from "./ShirtModel";
 import "./model.module.css";
 
 
-const ShirtModel = ({ color = "red" }) => {
-  const { scene } = useGLTF("/models/t_shirt.glb");
-
-  scene.traverse((child) => {
-    if (child.isMesh) {
-      child.material.color.set(color);
-    }
-  });
-
-  return <primitive object={scene} scale={3} position={[0, -3.8, 0]} />;
-};
-
-export const ShirtScene = () => {
+export const ShirtScene = ({color}) => {
   return (
     <Canvas
       camera={{ position: [0, 1.5, 5], fov: 30 }}
@@ -23,7 +12,7 @@ export const ShirtScene = () => {
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 5, 2]} intensity={1} />
-      <ShirtModel color="#ccc" />
+      <ShirtModel color={color} />
       <OrbitControls
         minDistance={2}
         maxDistance={7}
