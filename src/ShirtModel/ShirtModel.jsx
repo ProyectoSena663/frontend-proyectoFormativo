@@ -12,7 +12,7 @@ const ShirtModel = ({ color = "red" }) => {
     }
   });
 
-  return <primitive object={scene} scale={3} position={[0, -3.9, 0]} />;
+  return <primitive object={scene} scale={3} position={[0, -3.8, 0]} />;
 };
 
 export const ShirtScene = () => {
