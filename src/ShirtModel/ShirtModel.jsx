@@ -1,8 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import "./model.module.css";
-import { MenuL } from "../menuL/MenuL";
-import { MenuR } from "../menuR/MenuR";
+
 
 const ShirtModel = ({ color = "red" }) => {
   const { scene } = useGLTF("/models/t_shirt.glb");
@@ -24,7 +23,7 @@ export const ShirtScene = () => {
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 5, 2]} intensity={1} />
-      <ShirtModel color="red" />
+      <ShirtModel color="#ccc" />
       <OrbitControls
         minDistance={2}
         maxDistance={7}
