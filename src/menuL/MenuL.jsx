@@ -77,7 +77,7 @@ export const MenuL = () => {
       )}
 
       {modalOpen2 && (
-        <div className="modal-overlay2" onClick={handleModal2Click}>
+        <div className="modal-overlay2" onClick={handleCloseModal2}>
           <div className="modal-content2" onClick={(e) => e.stopPropagation()}>
             <div className="contenedor">
               <button className="close2" onClick={handleCloseModal2}>X</button>
