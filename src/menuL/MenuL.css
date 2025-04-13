@@ -45,13 +45,16 @@
 }
 
 /* 🔹 Área invisible que detecta el cursor en el borde izquierdo */
-#hover-area {
+#hover-areaa2 {
   position: absolute; /* Posición absoluta dentro del viewport */
   top: 150px; /* Ubicación desde la parte superior */
   left: 0; /* Pegado al borde izquierdo */
-  width: 30px; /* Define un área de detección estrecha */
-  height: 500px;
-  background: red; /* Invisible para el usuario */
+  width: 40px; /* Define un área de detección estrecha */
+  height: 400px;
+/* Invisible para el usuario */
+  /* border: 1px solid red; */
+  background-color: transparent;
+  z-index: 9999999999999;
 }
 
 /* 🔹 Clase para mostrar el menú lateral derecho */
@@ -233,9 +236,9 @@
 
 
         .close2{
-            position: relative;
+            position: absolute;
             left: 16rem;
-            bottom: 19.2rem;
+            bottom: 17rem;
             width: 2.5rem;
             height: 2rem;
             background-color: red;

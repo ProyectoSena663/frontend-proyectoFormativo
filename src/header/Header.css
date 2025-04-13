@@ -37,3 +37,18 @@
     outline: 2px solid #ccc;
     
 }
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-right: 1rem;
+
+    a{
+        text-decoration: none;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: #CCC;
+    }
+}

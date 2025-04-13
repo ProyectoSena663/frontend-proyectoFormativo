@@ -1,0 +1,56 @@
+.word-carousel { /* Contenedor principal del carrusel de palabras */
+    position: relative;             /* Necesario para posicionar absolutamente las palabras dentro */
+    height: 100vh;                 /* Ocupa toda la altura de la ventana del navegador */
+    width: 100vw;                  /* Ocupa todo el ancho de la ventana del navegador */
+    overflow: hidden;              /* Oculta el contenido que se salga del contenedor */
+    display: flex;                 /* Usa flexbox para centrar contenido */
+    justify-content: center;      /* Centra horizontalmente */
+    align-items: center;          /* Centra verticalmente */
+    background-color: #000;       /* Fondo negro */
+    z-index: 0;                    /* Orden de apilamiento por defecto */
+  }
+  
+  .word-carousel .word { /* Estilo para cada palabra individual */
+    position: absolute;            /* Se posiciona encima del contenedor */
+    width: 100%;                   /* Ocupa todo el ancho del contenedor */
+    opacity: 0;                    /* Inicialmente invisible */
+    animation: fadeWords 16s infinite; /* Aplica animación personalizada en bucle */
+    text-align: center;            /* Centra el texto */
+    font-size: 3rem;               /* Tamaño grande del texto */
+    font-weight: bold;            /* Texto en negrita */
+    color: #CCC;                  /* Color gris claro */
+    pointer-events: none;         /* No captura clics ni interacciones */
+    transform: translateY(0);      /* Posición inicial sin desplazamiento */
+    transition: opacity 1s ease-in-out; /* Transición suave al cambiar opacidad */
+  }
+  
+  /* Tiempos de espera para que cada palabra aparezca en su turno */
+  .word-carousel .word:nth-child(1) { animation-delay: 0s; }     /* Primera palabra aparece de inmediato */
+  .word-carousel .word:nth-child(2) { animation-delay: 4s; }     /* Segunda palabra a los 4 segundos */
+  .word-carousel .word:nth-child(3) { animation-delay: 8s; }     /* Tercera palabra a los 8 segundos */
+  .word-carousel .word:nth-child(4) { animation-delay: 12s; }    /* Cuarta palabra a los 12 segundos */
+  
+  /* Animación que controla la entrada y salida de cada palabra */
+  @keyframes fadeWords {
+    0% { 
+      opacity: 0;                  /* Comienza invisible */
+      transform: translateY(80px); /* Empieza un poco abajo */
+    }
+    10% { 
+      opacity: 1;              /* Se vuelve visible */
+      transform: translateY(0);    /* Sube a su posición final */
+    }
+    30% { 
+      opacity: 1;                  /* Permanece visible */
+      transform: translateY(0);    /* Sin movimiento */
+    }
+    40% { 
+      opacity: 0;                  /* Comienza a desaparecer */
+      transform: translateY(-80px);/* Se desliza hacia arriba */
+    }
+    100% { 
+      opacity: 0;                  /* Sigue invisible */
+      transform: translateY(-80px);/* Permanece arriba, fuera de vista */
+    }
+  }
+  

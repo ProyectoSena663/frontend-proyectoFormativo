@@ -1,27 +1,44 @@
 import { useState } from "react";
-import { ShirtScene } from "../Shirt/ShirtEscene";
+import { ShirtModel} from "../Shirt/ShirtModel";
 import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
 import "./MenuL.css";
 
 export const MenuL = () => {
   const [color, setColor] = useState("#ffffff"); // Estado para el color
-  const [visible, setVisible] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalOpen2, setModalOpen2] = useState(false);
-  const [modalOpen3, setModalOpen3] = useState(false);
+  const [visible, setVisible] = useState(false); // Estado para la visibilidad del menú
+  // Estados para los modales
+  const [modalOpen, setModalOpen] = useState(false); // Modal para el color
+  const [modalOpen2, setModalOpen2] = useState(false); // Modal para la personalización
+  const [modalOpen3, setModalOpen3] = useState(false); 
   const [modalOpen4, setModalOpen4] = useState(false);
   const [modalOpen5, setModalOpen5] = useState(false);
 
+  const newColor = (color) => {
+    setColor(color);
+  }
 
+  const handleModal2Click = (e) => {
+    e.stopPropagation();
+    setModalOpen2(true);
+  };
+
+  const handleCloseModal2 = (e) => {
+    e.stopPropagation();
+    setModalOpen2(false);
+  };
 
   return (
-    <div id="hover-area" onMouseEnter={() => setVisible(true)}>
-      <div className={`MenuL ${visible ? "show" : ""}`} onMouseLeave={() => setVisible(false)}>
+    //  esta es la area de deteccion del mause
+    <div id="hover-areaa2" onMouseEnter={() => setVisible(true)}>
+      <div className={`MenuL ${visible ? "show" : ""}`}
+      // esta es la parte visible del menu y la condicion para que se muestre.  
+      onMouseLeave={() => setVisible(false)}> 
         <ul className="UL">
+        {/* con esto se activa el modal mediante el click en el icono */}
           <li className="LI" onClick={() => setModalOpen(true)}>
             <Palette />
           </li>
-          <li className="LI" onClick={() => setModalOpen2(true)}>
+          <li className="LI" onClick={handleModal2Click}>
             <UserPen />
           </li>
           <li className="LI" onClick={() => setModalOpen3(true)}>
@@ -37,13 +54,15 @@ export const MenuL = () => {
       </div>
 
       {modalOpen && (
-        <div className="modal-overlay" onClick={() => setModalOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        // esta es la parte de la ventana emergente
+      <div className="modal-overlay" onClick={() => setModalOpen(false)}> 
+        {/* esta es la parte de la ventana emergente */}
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}> 
             <h2>BackgrouColor</h2>
             <div className=" colores">
-            <button className="bt" style={{backgroundColor: "blue"}}></button>
-            <button className="bt" style={{backgroundColor: "green"}} ></button>
-            <button className="bt" style={{backgroundColor: "red"}} ></button>
+            <button className="bt" onClick={() => newColor("blue")} style={{backgroundColor: "blue"}}></button>
+            <button className="bt" onClick={() => newColor("green")} style={{backgroundColor: "green"}} ></button>
+            <button className="bt" onClick={() => newColor("red")} style={{backgroundColor: "red"}} ></button>
             <input type="color" className="bt" name="col" id="col" value={color} onChange={(e => setColor(e.target.value))}/>
             <button className = "close" onClick={() => setModalOpen(false)}>X</button>
             </div>
@@ -58,35 +77,35 @@ export const MenuL = () => {
       )}
 
       {modalOpen2 && (
-        <div className="modal-overlay2" onClick={() => setModalOpen2(false)}>
+        <div className="modal-overlay2" onClick={handleModal2Click}>
           <div className="modal-content2" onClick={(e) => e.stopPropagation()}>
             <div className="contenedor">
+              <button className="close2" onClick={handleCloseModal2}>X</button>
               <label className="LA">
-              <input type="checkbox"/>
-              Cuello
+                <input type="checkbox"/>
+                Cuello
               </label>
               <label className="LA">
-              <input type="checkbox"/>
-              Brazalete
+                <input type="checkbox"/>
+                Brazalete
               </label>
               <label className="LA">
-              <input type="checkbox"/>
-              Dobladillo inferior
+                <input type="checkbox"/>
+                Dobladillo inferior
               </label>
               <label className="LA">
-              <input type="checkbox"/>
-              Mangas
+                <input type="checkbox"/>
+                Mangas
               </label>
               <label className="LA">
-              <input type="checkbox"/>
-              Interior
+                <input type="checkbox"/>
+                Interior
               </label>
               <label className="LA">
-              <input type="checkbox"/>
-              Fondo
+                <input type="checkbox"/>
+                Fondo
               </label>
-              <button className="personalizar">Personalizacion de colores</button>
-              <button className="close2" onClick={() => setModalOpen2(false)}>X</button>
+              <div className="personalizar">Personalizar</div>
             </div>
           </div>
         </div>
@@ -176,9 +195,9 @@ export const MenuL = () => {
           </div>
         </div>
       )}
-
       {/* Pasamos el color a la escena */}
-      <ShirtScene color={color} />
+      <ShirtModel color={color} />
+      
     </div>
   );
 };
