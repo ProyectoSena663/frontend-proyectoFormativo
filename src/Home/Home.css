@@ -8,6 +8,7 @@
     align-items: center;          /* Centra verticalmente */
     background-color: #000;       /* Fondo negro */
     z-index: 0;                    /* Orden de apilamiento por defecto */
+    top: 40%;
   }
   
   .word-carousel .word { /* Estilo para cada palabra individual */
@@ -37,7 +38,7 @@
       transform: translateY(80px); /* Empieza un poco abajo */
     }
     10% { 
-      opacity: 1;              /* Se vuelve visible */
+      opacity: 0;              /* Se vuelve visible */
       transform: translateY(0);    /* Sube a su posición final */
     }
     30% { 
