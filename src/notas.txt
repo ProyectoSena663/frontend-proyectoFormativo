@@ -1,4 +1,12 @@
+**No es ecena, es escena, que dolor**
+
 En la fecha 31/03/2025.
-- Voy a comenzar con la implementacion del la ecena 3D de la pagina.
-- Para comenzar vamos instalar todas las dependencias con esto npm install @react-three/fiber @react-three/drei three.
-- Continuare con la creacion de los componentes necesarios para realizar la ecena 3D.
+- Voy a comenzar con la implementacion de la escena 3D de la pagina.
+- Para comenzar vamos a instalar todas las dependencias con esto npm install @react-three/fiber @react-three/drei three.
+- Continuare con la creacion de los componentes necesarios para realizar la escena 3D.
+
+
+En la fecha 28/04/2025. Diego
+-Voy a poner lo del modelo de la gorra, iba a poner tambien el del pantalón pero Ordogen dijo que la quería hacer
+-Voy a usar react-router-dom
+-Voy a subir los cambios mañana porque tengo sueño y este sería el unico cambio que subiría al repositorio
