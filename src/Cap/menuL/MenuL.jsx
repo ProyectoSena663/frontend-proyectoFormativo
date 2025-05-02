@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Scene } from "../Shirt/Scene";
+import { Scene } from "../Shirt/ShirtEscene";
 import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
+import { Cap } from "../../assets/svg/Cap/L-Items/Cap";
+import { Size } from "../../assets/svg/Cap/L-Items/Size";
 import "./MenuL.css";
 
 export const MenuL = () => {
@@ -47,10 +49,10 @@ export const MenuL = () => {
             <Ellipsis />
           </li>
           <li className="LI" onClick={() => setModalOpen4(true)}>
-            <VenusAndMars />
+            <Size />
           </li>
           <li className="LI" onClick={() => setModalOpen5(true)}>
-            <Shirt />
+            <Cap />
           </li>
         </ul>
       </div>
@@ -165,48 +167,21 @@ export const MenuL = () => {
       {modalOpen4 && (
         <div className="modal-overlay4" onClick={() => setModalOpen4(false)}>
           <div className="modal-content4" onClick={(e) => e.stopPropagation()}>
-            <button className="genero">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
-                <path d="M19 5l-5.4 5.4" />
-                <path d="M19 5h-5" />
-                <path d="M19 5v5" />
-              </svg>
-            </button>
-
-            <button className="genero">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
-                <path d="M12 14l0 7" />
-                <path d="M9 18l6 0" />
-              </svg>
-            </button>
-
+            <h3>Talla</h3>
             <button className="close4" onClick={() => setModalOpen4(false)}>
               X
             </button>
+
+            <button className="size_items">6 7/8</button>
+            <button className="size_items">7</button>
+            <button className="size_items">7 1/8</button>
+            <button className="size_items">7 1/4</button>
+            <button className="size_items">7 3/8</button>
+            <button className="size_items">7 1/2</button>
+            <button className="size_items">7 5/8</button>
+            <button className="size_items">7 3/4</button>
+            <button className="size_items">7 7/8</button>
+            <button className="size_items">8</button>
           </div>
         </div>
       )}
@@ -214,21 +189,12 @@ export const MenuL = () => {
         <div className="modal-overlay5" onClick={() => setModalOpen5(false)}>
           <div className="modal-content5" onClick={(e) => e.stopPropagation()}>
             <div className="tipoRopa">
-              <button className="btm">
-                Camiseta <span>👕</span>
-              </button>
-              <button className="btm">
-                Camibuso <span>👚</span>
-              </button>
-              <button className="btm">
-                Camisa <span>👔</span>
-              </button>
-              <button className="btm">
-                Buso <span>🧥</span>
-              </button>
-              <button className="btm">
-                Esqueleto <span>🦺</span>
-              </button>
+              <button className="btm">Camionera</button>
+              <button className="btm">Drill</button>
+              <button className="btm">Sombrero</button>
+              <button className="btm">Arabe tapa cuello</button>
+              <button className="btm">Visera</button>
+              <button className="btm">Taslam</button>
               <button className="close5" onClick={() => setModalOpen5(false)}>
                 X
               </button>

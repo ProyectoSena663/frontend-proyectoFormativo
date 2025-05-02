@@ -1,8 +1,13 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "./Model";
+import { Model } from "./ShirtModel";
 
-export const Scene = ({ color = "white", rotation = 0, speed = 0, isRotating = false }) => {
+export const Scene = ({
+  color = "white",
+  rotation = 0,
+  speed = 0,
+  isRotating = false,
+}) => {
   return (
     <div className="sceneShirt">
       <Canvas

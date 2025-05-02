@@ -1,6 +1,6 @@
 **No es ecena, es escena, que dolor**
 
-En la fecha 31/03/2025.
+En la fecha 31/03/2025. Ordogen
 - Voy a comenzar con la implementacion de la escena 3D de la pagina.
 - Para comenzar vamos a instalar todas las dependencias con esto npm install @react-three/fiber @react-three/drei three.
 - Continuare con la creacion de los componentes necesarios para realizar la escena 3D.
@@ -17,3 +17,7 @@ En la fecha 01/05/2025. Diego
 -El modelo de la gorra es gltf. Para mi es facil importarlo estando en ese formato
 -Si entra en la ruta de la gorra va a estar desorganizado todo porque no lo he terminado de organizar todo
 -😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁
+
+En la fecha 02/05/2025. Diego
+-Ya organicé los menús de la gorra
+-Solo me falta organizar el modelo de la gorra porque cuando lo metí no quiere cargar y pone el fondo negro entonces creo yo que lo organizaría despues

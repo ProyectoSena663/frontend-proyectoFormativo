@@ -1,8 +1,8 @@
 import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import { Mesh, MeshStandardMaterial, Box3, Vector3 } from "three";
+import { MeshStandardMaterial, Box3, Vector3 } from "three";
 
-export const Model = ({ color = "white", rotation = 0, speed = 0, isRotating = false }) => {
+export const Model= ({ color = "white", rotation = 0, speed = 0, isRotating = false }) => {
   const { scene } = useGLTF("/models/Cap_model/scene.gltf");
   const modelRef = useRef(null);
 
@@ -14,7 +14,7 @@ export const Model = ({ color = "white", rotation = 0, speed = 0, isRotating = f
       scene.position.sub(center);
 
       scene.traverse((object) => {
-        const mesh = object;
+        const mesh = object ;
         if (mesh.isMesh) {
           // Verificar si el material es un array o un solo material
           if (Array.isArray(mesh.material)) {
@@ -35,7 +35,7 @@ export const Model = ({ color = "white", rotation = 0, speed = 0, isRotating = f
 
   useEffect(() => {
     if (!isRotating && modelRef.current) {
-      modelRef.current.rotation = (rotation * Math.PI) / 180;
+      modelRef.current.rotation.y = (rotation * Math.PI) / 180;
     }
   }, [rotation, isRotating]);
 
@@ -55,7 +55,7 @@ export const Model = ({ color = "white", rotation = 0, speed = 0, isRotating = f
         // Convertir la velocidad del range (0-100) a una velocidad de rotación más adecuada
         const rotationSpeed = (speed / 100) * 0.01;
         currentRotation += rotationSpeed * deltaTime;
-        modelRef.current.rotation.y = currentRotation;
+        modelRef.current.rotation = currentRotation;
       }
 
       animationFrameId = requestAnimationFrame(animate);
