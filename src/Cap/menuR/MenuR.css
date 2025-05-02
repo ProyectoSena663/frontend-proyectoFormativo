@@ -1,0 +1,148 @@
+/* Menú lateral derecho */
+.MenuR {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  padding: 0 40px;
+  border-radius: 4rem;
+  width: 0px; 
+  background-color: #1e1e1e;
+  position: fixed;
+  z-index: 99999;
+  right: 0;
+  margin:0 .7rem ;
+  transform: translateX(110%); /* Inicialmente oculto */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cuando el menú debe mostrarse */
+.MenuR.show {
+  transform: translateX(0);
+}
+
+/* Estilos del contenido interno */
+.UL2 {
+  width: 100%;
+  height: 100%;
+  padding: 0 34px;
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #21252d;
+  /* background-color: red; */
+  border-radius: 2rem;
+}
+
+/* Ítems de la lista */
+.LI2 {
+  padding: 0 1rem;
+  list-style: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Íconos dentro de los elementos */
+.LI2 svg {
+  width: 35px;
+  height: 40px;
+  color: #929aa9;
+  /* background-color: red; */
+}
+
+/* Efecto hover en los ítems */
+.LI2:hover {
+  background: #555;
+  border-radius: 2rem;
+}
+
+/* Área invisible que detecta el cursor en el borde derecho */
+.hover-area2 {
+  position: absolute;
+  z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+  top: 150px;
+  right: 0;
+  width: 40px;
+  height: 350px;
+}
+
+
+/* modales*/
+/*=======================================================================================================================================*/
+/* primer modal*/
+
+.Modal-Overlay1 {
+  position: fixed;
+  top:10rem;
+  left: 39rem;
+  width: 45%;
+  height:70%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Asegúrate de que el modal esté por encima de otros elementos */
+}
+.Modal-Content1 {
+  border-radius: 20px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.infoo{
+  border-radius:  20px 0 0px 20px ;
+  width: 30%;
+  height: 100%;
+  background-color:#131212;
+  padding-left: .8rem;
+  padding-top: .4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  
+  .info{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+     'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgba(94, 93, 93, 0.651);
+    width: 10rem;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding-left: .3rem;
+    color: #ccc;
+    transition: .4s all ease-in-out;
+  }
+}
+
+.info:hover{
+  background-color: rgba(145, 143, 143, 0.651);
+  cursor: pointer;
+}
+
+.lorem{
+  width: 70%;
+  height: 100%;
+  background-color: #181717;
+  border-radius: 0 20px 20px 0px;
+  color: #ccc;
+  padding: 1rem ;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+   'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.closee{
+  position: absolute;
+  top: 1px;
+  right: 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}

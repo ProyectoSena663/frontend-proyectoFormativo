@@ -35,6 +35,7 @@ export const Header = () => {
         <ul className="nav">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/camisa">Camisa</NavLink>
+          <NavLink to="/gorra">Gorra</NavLink>
           <Sun />
         </ul>
       </nav>

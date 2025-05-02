@@ -10,3 +10,10 @@ En la fecha 28/04/2025. Diego
 -Voy a poner lo del modelo de la gorra, iba a poner tambien el del pantalón pero Ordogen dijo que la quería hacer
 -Voy a usar react-router-dom
 -Voy a subir los cambios mañana porque tengo sueño y este sería el unico cambio que subiría al repositorio
+
+En la fecha 01/05/2025. Diego
+-Edité la ubicación de algunos archivos porque me estaba jodiendo los menús de la gorra entonces junté todo lo que era sobre la camiseta en una carpeta y junté los menús y el modelo dentro de un archivos
+-Mañana termino de editar los menús porque tengo que madrugar mañana y no puedo trasnochar
+-El modelo de la gorra es gltf. Para mi es facil importarlo estando en ese formato
+-Si entra en la ruta de la gorra va a estar desorganizado todo porque no lo he terminado de organizar todo
+-😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁
