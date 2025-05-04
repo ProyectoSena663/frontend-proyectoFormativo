@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Model } from "./ShirtModel";
+import { Model } from "./Cap-Model";
 
 export const Scene = ({
   color = "white",
@@ -9,7 +9,7 @@ export const Scene = ({
   isRotating = false,
 }) => {
   return (
-    <div className="sceneShirt">
+    <div className="sceneShirt" style={{width:'100%', height:'100vh', overflow: 'hidden'}}>
       <Canvas
         camera={{ position: [0, 0, 3], fov: 50 }}
         style={{ background: "transparent" }}

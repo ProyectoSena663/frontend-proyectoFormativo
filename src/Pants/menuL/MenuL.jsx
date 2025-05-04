@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Scene } from "../Cap-3D/Cap-Scene";
-import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
-import { Cap } from "../../assets/svg/Cap/L-Items/Cap";
+import { Scene } from "../Shirt/Scene";
+import { Palette, UserPen, Ellipsis} from "lucide-react";
+import {Pant} from '../../assets/svg/Cap/L-Items/Pant' 
 import { Size } from "../../assets/svg/Cap/L-Items/Size";
 import "./MenuL.css";
 
@@ -52,7 +52,7 @@ export const MenuL = () => {
             <Size />
           </li>
           <li className="LI" onClick={() => setModalOpen5(true)}>
-            <Cap />
+            <Pant />
           </li>
         </ul>
       </div>
@@ -110,27 +110,27 @@ export const MenuL = () => {
               </button>
               <label className="LA">
                 <input type="checkbox" />
-                Color
+                Cuello
               </label>
               <label className="LA">
                 <input type="checkbox" />
-                Vicera
+                Textura
               </label>
               <label className="LA">
                 <input type="checkbox" />
-                Agregar imagenes
+                Parches
               </label>
               <label className="LA">
                 <input type="checkbox" />
-                Agregar texto
+                Ripped
               </label>
               <label className="LA">
                 <input type="checkbox" />
-                Material
+                Largo del pantalon
               </label>
               <label className="LA">
                 <input type="checkbox" />
-                Patron
+                Tipo de manga
               </label>
               <div className="personalizar">Personalizar</div>
             </div>
@@ -172,16 +172,13 @@ export const MenuL = () => {
               X
             </button>
 
-            <button className="size_items">6 7/8</button>
-            <button className="size_items">7</button>
-            <button className="size_items">7 1/8</button>
-            <button className="size_items">7 1/4</button>
-            <button className="size_items">7 3/8</button>
-            <button className="size_items">7 1/2</button>
-            <button className="size_items">7 5/8</button>
-            <button className="size_items">7 3/4</button>
-            <button className="size_items">7 7/8</button>
-            <button className="size_items">8</button>
+            <button className="size_items">XS</button>
+            <button className="size_items">S</button>
+            <button className="size_items">M</button>
+            <button className="size_items">L</button>
+            <button className="size_items">XL</button>
+            <button className="size_items">XXL</button>
+            <button className="size_items">XXXL</button>
           </div>
         </div>
       )}
@@ -189,12 +186,13 @@ export const MenuL = () => {
         <div className="modal-overlay5" onClick={() => setModalOpen5(false)}>
           <div className="modal-content5" onClick={(e) => e.stopPropagation()}>
             <div className="tipoRopa">
-              <button className="btm">Camionera</button>
-              <button className="btm">Drill</button>
+              <button className="btm">Jeans</button>
+              <button className="btm">Sudareras</button>
               <button className="btm">Sombrero</button>
-              <button className="btm">Arabe tapa cuello</button>
-              <button className="btm">Visera</button>
-              <button className="btm">Taslam</button>
+              <button className="btm">Pantalonetas</button>
+              <button className="btm">Shorts</button>
+              <button className="btm">Bermudas</button>
+              <button className="btm">Joggers</button>
               <button className="close5" onClick={() => setModalOpen5(false)}>
                 X
               </button>

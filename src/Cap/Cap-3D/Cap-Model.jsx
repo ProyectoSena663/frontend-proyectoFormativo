@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { MeshStandardMaterial, Box3, Vector3 } from "three";
 
 export const Model= ({ color = "white", rotation = 0, speed = 0, isRotating = false }) => {
-  const { scene } = useGLTF("/models/Cap_model/scene.gltf");
+  const { scene } = useGLTF("models/Cap_model/scene.gltf");
   const modelRef = useRef(null);
 
   useEffect(() => {
