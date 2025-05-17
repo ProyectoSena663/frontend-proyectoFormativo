@@ -10,7 +10,7 @@
     z-index: 0;                    /* Orden de apilamiento por defecto */
   }
   
-  .word-carousel .word { /* Estilo para cada palabra individual */
+  .word-carousel .wordd { /* Estilo para cada palabra individual */
     position: absolute;            /* Se posiciona encima del contenedor */
     width: 100%;                   /* Ocupa todo el ancho del contenedor */
     opacity: 0;                    /* Inicialmente invisible */
@@ -25,10 +25,10 @@
   }
   
   /* Tiempos de espera para que cada palabra aparezca en su turno */
-  .word-carousel .word:nth-child(1) { animation-delay: 0s; }     /* Primera palabra aparece de inmediato */
-  .word-carousel .word:nth-child(2) { animation-delay: 4s; }     /* Segunda palabra a los 4 segundos */
-  .word-carousel .word:nth-child(3) { animation-delay: 8s; }     /* Tercera palabra a los 8 segundos */
-  .word-carousel .word:nth-child(4) { animation-delay: 12s; }    /* Cuarta palabra a los 12 segundos */
+  .word-carousel .wordd:nth-child(1) { animation-delay: 0s; }     /* Primera palabra aparece de inmediato */
+  .word-carousel .wordd:nth-child(2) { animation-delay: 4s; }     /* Segunda palabra a los 4 segundos */
+  .word-carousel .wordd:nth-child(3) { animation-delay: 8s; }     /* Tercera palabra a los 8 segundos */
+  .word-carousel .wordd:nth-child(4) { animation-delay: 12s; }    /* Cuarta palabra a los 12 segundos */
   
   /* Animación que controla la entrada y salida de cada palabra */
   @keyframes fadeWords {
