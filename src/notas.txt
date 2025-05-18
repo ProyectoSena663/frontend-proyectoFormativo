@@ -1,4 +1,28 @@
-En la fecha 31/03/2025.
-- Voy a comenzar con la implementacion del la ecena 3D de la pagina.
-- Para comenzar vamos instalar todas las dependencias con esto npm install @react-three/fiber @react-three/drei three.
-- Continuare con la creacion de los componentes necesarios para realizar la ecena 3D.
+**No es ecena, es escena, que dolor**
+
+En la fecha 31/03/2025. Ordogen
+- Voy a comenzar con la implementacion de la escena 3D de la pagina.
+- Para comenzar vamos a instalar todas las dependencias con esto npm install @react-three/fiber @react-three/drei three.
+- Continuare con la creacion de los componentes necesarios para realizar la escena 3D.
+
+
+En la fecha Lunes 28/04/2025. Diego
+-Voy a poner lo del modelo de la gorra, iba a poner tambien el del pantalón pero Ordogen dijo que la quería hacer
+-Voy a usar react-router-dom
+-Voy a subir los cambios mañana porque tengo sueño y este sería el unico cambio que subiría al repositorio
+
+En la fecha Jueves 01/05/2025. Diego
+-Edité la ubicación de algunos archivos porque me estaba jodiendo los menús de la gorra entonces junté todo lo que era sobre la camiseta en una carpeta y junté los menús y el modelo dentro de un archivos
+-Mañana termino de editar los menús porque tengo que madrugar mañana y no puedo trasnochar
+-El modelo de la gorra es gltf. Para mi es facil importarlo estando en ese formato
+-Si entra en la ruta de la gorra va a estar desorganizado todo porque no lo he terminado de organizar todo
+-😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁😁
+
+En la fecha Viernes 02/05/2025. Diego
+-Ya organicé los menús de la gorra
+-Solo me falta organizar el modelo de la gorra porque cuando lo metí no quiere cargar y pone el fondo negro entonces creo yo que lo organizaría despues
+
+En la fecha Domingo 04/05/2025. Diego
+-Ya organicé el modelo de la guerra y el contenido de algunos menús.
+-Ya hice la ruta del pantalón y ya le puse el modelo y los menús del mismo.
+-Ya cumpliría con las tareas de esta semana. Creo...
