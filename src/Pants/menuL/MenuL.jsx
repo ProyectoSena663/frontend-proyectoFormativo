@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Scene } from "../Shirt/Scene";
-import { Palette, UserPen, Ellipsis} from "lucide-react";
-import {Pant} from '../../assets/svg/Cap/L-Items/Pant' 
+import { Scene } from "../Pants-3D/Scene";
+import { Palette, UserPen, Ellipsis } from "lucide-react";
+import { Pant } from "../../assets/svg/Cap/L-Items/Pant";
 import { Size } from "../../assets/svg/Cap/L-Items/Size";
 import "./MenuL.css";
 
@@ -166,7 +166,10 @@ export const MenuL = () => {
       )}
       {modalOpen4 && (
         <div className="modal-overlay4" onClick={() => setModalOpen4(false)}>
-          <div className="Cap-modal-content4" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="Cap-modal-content4"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h3>Talla</h3>
             <button className="close4" onClick={() => setModalOpen4(false)}>
               X

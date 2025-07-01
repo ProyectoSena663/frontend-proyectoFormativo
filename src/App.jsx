@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./Home/Home"; // Ensure you have a Home component in the specified path
 import { Shirt_Main } from "./Shirt/Shirt-Main";
 import { Cap_main } from "./Cap/Cap-Main";
-import { Pants_main } from "./Pants/Shirt-Main";
+import { Pants_main } from "./Pants/Pants-Main";
 
 export const App = () => {
   return (
