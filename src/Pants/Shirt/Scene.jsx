@@ -23,7 +23,7 @@ export const Scene = ({ color = "white", rotation = 0, speed = 0, isRotating = f
           maxDistance={10}
           zoomSpeed={0.7}
           minPolarAngle={Math.PI / 2}
-          maxPolarAngle={Math.PI / 1.5}
+          maxPolarAngle={Math.PI / 2}
           enablePan={false}
         />
       </Canvas>

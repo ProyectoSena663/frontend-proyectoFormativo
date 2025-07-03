@@ -4,10 +4,10 @@ export const Home = () => {
 
     return(
         <div className="word-carousel">
-            <span className="word">Craft your Style</span>
-            <span className="word">Crafted Identity</span>
-            <span className="word">Signature Vibe</span>
-            <span className="word">Express Your Vibe</span>
+            <span className="wordd">Craft your Style</span>
+            <span className="wordd">Crafted Identity</span>
+            <span className="wordd">Signature Vibe</span>
+            <span className="wordd">Express Your Vibe</span>
         </div>
     )
 }
