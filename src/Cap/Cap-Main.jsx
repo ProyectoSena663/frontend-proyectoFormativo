@@ -5,7 +5,7 @@ import { Scene } from "./Cap-3D/Cap-Scene";
 
 export const Cap_main = () => {
   return (
-    <main className="Shirt_Main">
+    <main className="Cap_Main">
       <MenuL />
       <Scene />
       <MenuR />
