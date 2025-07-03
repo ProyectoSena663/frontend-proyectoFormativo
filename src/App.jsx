@@ -5,6 +5,7 @@ import { Home } from "./Home/Home"; // Ensure you have a Home component in the s
 import { Shirt_Main } from "./Shirt/Shirt-Main";
 import { Cap_main } from "./Cap/Cap-Main";
 import { Pants_main } from "./Pants/Pants-Main";
+import { Outfit } from "./outfit/Outfit"; // Import the Outfit component
 
 export const App = () => {
   return (
@@ -16,6 +17,8 @@ export const App = () => {
           <Route path="/camisa" element={<Shirt_Main />} />
           <Route path="/gorra" element={<Cap_main />} />
           <Route path="/pantalon" element={<Pants_main />} />
+          <Route path="/outfit" element={<Outfit />} />
+          {/* Add more routes as needed */}
         </Routes>
       </BrowserRouter>
     </div>

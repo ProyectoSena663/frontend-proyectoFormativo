@@ -1,4 +1,3 @@
-import React from "react";
 import "./Header.css";
 import { Sun } from "lucide-react";
 import { NavLink } from "react-router-dom";
@@ -36,7 +35,8 @@ export const Header = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/camisa">Camisa</NavLink>
           <NavLink to="/gorra">Gorra</NavLink>
-          <NavLink to="/pantalon">Pantalon</NavLink> 
+          <NavLink to="/pantalon">Pantalon</NavLink>
+          <NavLink to="/outfit">Outfit</NavLink>
           <Sun />
         </ul>
       </nav>
