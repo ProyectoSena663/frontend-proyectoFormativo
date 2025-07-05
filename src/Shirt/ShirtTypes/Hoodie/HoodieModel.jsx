@@ -8,7 +8,7 @@ export const Model = ({
   speed = 0,
   isRotating = false,
 }) => {
-  const { scene } = useGLTF("/public/models/Hoodie_Model/Hoodie_Model.gltf");
+  const { scene } = useGLTF("/models/Hoodie_Model/Hoodie_Model.gltf");
   const modelRef = useRef(null);
 
   useEffect(() => {
