@@ -19,21 +19,18 @@ export const Model = ({
     const center = box.getCenter(new Vector3());
     scene.position.sub(center);
 
+    // Recoge los meshes a eliminar
+    const meshesToRemove = [];
     scene.traverse((object) => {
       const mesh = object;
-
-      // Eliminar cubos pequeños por nombre o tipo
       if (
         mesh.isMesh &&
         (mesh.name.toLowerCase().includes("cube") ||
           mesh.geometry?.type === "BoxGeometry")
       ) {
-        scene.remove(mesh);
-        return;
-      }
-
-      // Aplicar color y quitar textura
-      if (mesh.isMesh) {
+        meshesToRemove.push(mesh);
+      } else if (mesh.isMesh) {
+        // Aplicar color y quitar textura
         if (Array.isArray(mesh.material)) {
           mesh.material.forEach((mat) => {
             if (mat instanceof MeshStandardMaterial) {
@@ -50,6 +47,10 @@ export const Model = ({
           }
         }
       }
+    });
+    // Elimina los meshes fuera del traverse
+    meshesToRemove.forEach((mesh) => {
+      if (mesh.parent) mesh.parent.remove(mesh);
     });
   }, [color, scene]);
 
@@ -92,7 +93,7 @@ export const Model = ({
       ref={modelRef}
       object={scene}
       scale={[0.025, 0.0233, 0.025]}
-      position={[0, -4.5, 0]}
+      position={[0, 0, 0]}
     />
   );
 };
