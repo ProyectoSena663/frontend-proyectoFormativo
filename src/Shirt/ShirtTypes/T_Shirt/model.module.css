@@ -1,0 +1,8 @@
+canvas {
+    background-color: black;
+    background-image: linear-gradient(#10121a 1px, transparent 1px),
+    linear-gradient(90deg, #333 1px, transparent 1px);
+    background-size: 20px 20px;
+    position: absolute;
+    z-index: 1;
+}
