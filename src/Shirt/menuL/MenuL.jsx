@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { ShirtModel} from "../Shirt/ShirtModel";
+import { ShirtIcon } from "../../assets/svg/Cap/L-Items/Shirt_Icon";
 import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
 import "./MenuL.css";
+import { HoodieIcon } from "../../assets/svg/Cap/L-Items/Hoodie_Icon";
+import { JacketIcon } from "../../assets/svg/Cap/L-Items/Jacket_Icon";
+import { T_Shirt_Icon } from "../../assets/svg/Cap/L-Items/T_Shirt_Icon";
+import { Tank_Top_Icon } from "../../assets/svg/Cap/L-Items/Tank_Top_Icon";
 
 export const MenuL = () => {
   const [color, setColor] = useState("#ffffff"); // Estado para el color
@@ -185,11 +190,11 @@ export const MenuL = () => {
         <div className="modal-overlay5" onClick={() => setModalOpen5(false)}>
           <div className="modal-content5" onClick={(e) => e.stopPropagation()}>
             <div className="tipoRopa">
-              <button className="btm">Camiseta <span>👕</span></button>
-              <button className="btm">Camibuso <span>👚</span></button>
-              <button className="btm">Camisa <span>👔</span></button>
-              <button className="btm">Buso <span>🧥</span></button>
-              <button className="btm">Esqueleto <span>🦺</span></button>
+              <button className="btm">Camiseta <ShirtIcon/></button>
+              <button className="btm">Camibuso <JacketIcon/></button>
+              <button className="btm">Camisa <T_Shirt_Icon/></button>
+              <button className="btm">Buso <HoodieIcon/></button>
+              <button className="btm">Esqueleto <Tank_Top_Icon/></button>
             <button className="close5" onClick={() => setModalOpen5(false)}>X</button>
             </div>
           </div>
