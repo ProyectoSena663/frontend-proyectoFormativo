@@ -3,18 +3,52 @@ import { HoodieScene } from "../ShirtTypes/Hoodie/HoodieScene"; // Buso
 import { JacketScene } from "../ShirtTypes/Jacket/JacketScene"; // Camibuso
 import { ShirtLongSleeves } from "../ShirtTypes/Shirt_Long_Sleeves/LongShirtScene"; // Camisa
 
-export const ModelDisplay = ({ tipoPrenda, color }) => {
+export const ModelDisplay = ({
+  tipoPrenda,
+  color,
+  rotation,
+  isRotating,
+  speed,
+}) => {
   switch (tipoPrenda) {
     case "camiseta":
       return <ShirtScene color={color} />;
     case "camibuso":
-      return <JacketScene color={color} />;
+      return (
+        <JacketScene
+          color={color}
+          rotation={rotation}
+          isRotating={isRotating}
+          speed={speed}
+        />
+      );
     case "camisa":
-      return <ShirtLongSleeves color={color} />;
+      return (
+        <ShirtLongSleeves
+          color={color}
+          rotation={rotation}
+          isRotating={isRotating}
+          speed={speed}
+        />
+      );
     case "buso":
-      return <HoodieScene color={color} />;
+      return (
+        <HoodieScene
+          color={color}
+          rotation={rotation}
+          isRotating={isRotating}
+          speed={speed}
+        />
+      );
     case "esqueleto":
-      return <TankTopScene color={color} />;
+      return (
+        <TankTopScene
+          color={color}
+          rotation={rotation}
+          isRotating={isRotating}
+          speed={speed}
+        />
+      );
     default:
       return (
         <div

@@ -11,10 +11,19 @@ import { HoodieIcon } from "../../assets/svg/Cap/L-Items/Hoodie_Icon";
 import { JacketIcon } from "../../assets/svg/Cap/L-Items/Jacket_Icon";
 import { T_Shirt_Icon } from "../../assets/svg/Cap/L-Items/T_Shirt_Icon";
 import { Tank_Top_Icon } from "../../assets/svg/Cap/L-Items/Tank_Top_Icon";
-
 import "./MenuL.css";
 
-export const MenuL = ({ onTipoPrendaChange, onColorChange, color }) => {
+export const MenuL = ({
+  onTipoPrendaChange,
+  onColorChange,
+  color,
+  rotation,
+  isRotating,
+  speed,
+  onRotationChange,
+  onIsRotatingChange,
+  onSpeedChange,
+}) => {
   const [visible, setVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen2, setModalOpen2] = useState(false);
@@ -22,8 +31,16 @@ export const MenuL = ({ onTipoPrendaChange, onColorChange, color }) => {
   const [modalOpen4, setModalOpen4] = useState(false);
   const [modalOpen5, setModalOpen5] = useState(false);
 
-  const newColor = (color) => {
-    onColorChange(color);
+  // Handlers para rotación
+  const handleRotation = (deg) => {
+    onIsRotatingChange(false); // detiene rotación automática
+    onRotationChange(deg);     // aplica ángulo manual
+  };
+
+  const handleSpeedChange = (e) => {
+    const newSpeed = parseFloat(e.target.value);
+    onSpeedChange(newSpeed);
+    onIsRotatingChange(true); // activa rotación automática
   };
 
   return (
@@ -33,11 +50,21 @@ export const MenuL = ({ onTipoPrendaChange, onColorChange, color }) => {
         onMouseLeave={() => setVisible(false)}
       >
         <ul className="UL">
-          <li className="LI" onClick={() => setModalOpen(true)}><Palette /></li>
-          <li className="LI" onClick={() => setModalOpen2(true)}><UserPen /></li>
-          <li className="LI" onClick={() => setModalOpen3(true)}><Ellipsis /></li>
-          <li className="LI" onClick={() => setModalOpen4(true)}><VenusAndMars /></li>
-          <li className="LI" onClick={() => setModalOpen5(true)}><Shirt /></li>
+          <li className="LI" onClick={() => setModalOpen(true)}>
+            <Palette />
+          </li>
+          <li className="LI" onClick={() => setModalOpen2(true)}>
+            <UserPen />
+          </li>
+          <li className="LI" onClick={() => setModalOpen3(true)}>
+            <Ellipsis />
+          </li>
+          <li className="LI" onClick={() => setModalOpen4(true)}>
+            <VenusAndMars />
+          </li>
+          <li className="LI" onClick={() => setModalOpen5(true)}>
+            <Shirt />
+          </li>
         </ul>
       </div>
 
@@ -45,18 +72,26 @@ export const MenuL = ({ onTipoPrendaChange, onColorChange, color }) => {
       {modalOpen && (
         <div className="modal-overlay" onClick={() => setModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Color</h2>
+            <h2>BackgrouColor</h2>
             <div className="colores">
-              <button className="bt" onClick={() => newColor("blue")} style={{ backgroundColor: "blue" }} />
-              <button className="bt" onClick={() => newColor("green")} style={{ backgroundColor: "green" }} />
-              <button className="bt" onClick={() => newColor("red")} style={{ backgroundColor: "red" }} />
+              <button className="bt" onClick={() => onColorChange("blue")} style={{ backgroundColor: "blue" }} />
+              <button className="bt" onClick={() => onColorChange("green")} style={{ backgroundColor: "green" }} />
+              <button className="bt" onClick={() => onColorChange("red")} style={{ backgroundColor: "red" }} />
               <input
                 type="color"
                 className="bt"
+                name="col"
+                id="col"
                 value={color}
-                onChange={(e) => newColor(e.target.value)}
+                onChange={(e) => onColorChange(e.target.value)}
               />
               <button className="close" onClick={() => setModalOpen(false)}>X</button>
+            </div>
+            <div className="editor"></div>
+            <div className="tools">
+              <div className="Design">Upload Design</div>
+              <div className="Design">Delete Design</div>
+              <div className="Design">Delete Background</div>
             </div>
           </div>
         </div>
@@ -80,20 +115,29 @@ export const MenuL = ({ onTipoPrendaChange, onColorChange, color }) => {
         </div>
       )}
 
-      {/* MODAL 3 - Animación */}
+      {/* ✅ MODAL 3 - Animación */}
       {modalOpen3 && (
         <div className="modal-overlay3" onClick={() => setModalOpen3(false)}>
           <div className="modal-content3" onClick={(e) => e.stopPropagation()}>
             <h2 className="h2o">Velocidad de animación</h2>
-            <input type="range" />
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value={speed}
+              onChange={handleSpeedChange}
+            />
             <div className="N">
               {[0, 45, 90, 135, 180, 225, 270, 315, 360].map((deg) => (
-                <button className="numeros" key={deg}>{deg}°</button>
+                <button className="numeros" key={deg} onClick={() => handleRotation(deg)}>
+                  {deg}°
+                </button>
               ))}
             </div>
             <div className="Rot">
-              <button className="rotar">Izquierda</button>
-              <button className="rotar">Derecha</button>
+              <button className="rotar" onClick={() => onIsRotatingChange(true)}>Izquierda</button>
+              <button className="rotar" onClick={() => onIsRotatingChange(false)}>Detener</button>
             </div>
             <button className="close3" onClick={() => setModalOpen3(false)}>X</button>
           </div>

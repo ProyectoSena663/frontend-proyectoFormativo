@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
-import { Mesh, MeshStandardMaterial, Box3, Vector3 } from "three";
+import { MeshStandardMaterial, Box3, Vector3 } from "three";
 
 export const Model = ({
   color = "white",
@@ -8,10 +8,9 @@ export const Model = ({
   speed = 0,
   isRotating = false,
 }) => {
-  const { scene } = useGLTF(
-    "/models/Shirt_Long_Sleeves/Shirt Long Sleeves.gltf"
-  );
+  const { scene } = useGLTF("/models/Shirt_Long_Sleeves/Shirt Long Sleeves.gltf");
   const modelRef = useRef(null);
+  const currentRotationRef = useRef(0); // ✅ Se mantiene entre renders
 
   useEffect(() => {
     if (!scene || typeof scene.traverse !== "function") return;
@@ -24,7 +23,6 @@ export const Model = ({
     scene.traverse((object) => {
       const mesh = object;
 
-      // Eliminar cubos pequeños por nombre o tipo
       if (
         mesh.isMesh &&
         (mesh.name.toLowerCase().includes("cube") ||
@@ -34,7 +32,6 @@ export const Model = ({
         return;
       }
 
-      // Aplicar color y quitar textura
       if (mesh.isMesh) {
         if (Array.isArray(mesh.material)) {
           mesh.material.forEach((mat) => {
@@ -48,12 +45,14 @@ export const Model = ({
               mat.needsUpdate = true;
             }
           });
-        } else {
-          if (mesh.material instanceof MeshStandardMaterial) {
-            mesh.material.map = null;
-            mesh.material.color.set(color);
-            mesh.material.needsUpdate = true;
-          }
+        } else if (mesh.material instanceof MeshStandardMaterial) {
+          mesh.material.map = null;
+          mesh.material.color.set(color);
+          mesh.material.transparent = false;
+          mesh.material.opacity = 1;
+          mesh.material.depthWrite = true;
+          mesh.material.alphaTest = 0;
+          mesh.material.needsUpdate = true;
         }
       }
     });
@@ -62,25 +61,23 @@ export const Model = ({
   useEffect(() => {
     if (!isRotating && modelRef.current) {
       modelRef.current.rotation.y = (rotation * Math.PI) / 180;
+      currentRotationRef.current = (rotation * Math.PI) / 180; // sincroniza
     }
   }, [rotation, isRotating]);
 
   useEffect(() => {
     let animationFrameId;
     let lastTime = 0;
-    let currentRotation = 0;
 
     const animate = (time) => {
-      if (lastTime === 0) {
-        lastTime = time;
-      }
+      if (lastTime === 0) lastTime = time;
       const deltaTime = time - lastTime;
       lastTime = time;
 
       if (isRotating && modelRef.current) {
         const rotationSpeed = (speed / 100) * 0.01;
-        currentRotation += rotationSpeed * deltaTime;
-        modelRef.current.rotation.y = currentRotation;
+        currentRotationRef.current += rotationSpeed * deltaTime;
+        modelRef.current.rotation.y = currentRotationRef.current;
       }
 
       animationFrameId = requestAnimationFrame(animate);
@@ -88,9 +85,7 @@ export const Model = ({
 
     animationFrameId = requestAnimationFrame(animate);
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, [isRotating, speed]);
 
   return (
