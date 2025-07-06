@@ -9,8 +9,9 @@ export const ShirtLongSleeves = ({ color, rotation, speed, isRotating }) => {
       camera={{ position: [0, 1.5, 5], fov: 30 }}
       style={{ background: "#333" }}
     >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[2, 5, 2]} intensity={1} />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[4, 5, 2]} intensity={3.5} />
+      <directionalLight position={[-3, 5, -2]} intensity={10} />
 
       <Model
         color={color}

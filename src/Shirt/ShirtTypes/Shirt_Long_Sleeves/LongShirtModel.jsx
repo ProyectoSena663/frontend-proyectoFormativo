@@ -8,7 +8,9 @@ export const Model = ({
   speed = 0,
   isRotating = false,
 }) => {
-  const { scene } = useGLTF("/models/Shirt_Long_Sleeves/Shirt Long Sleeves.gltf");
+  const { scene } = useGLTF(
+    "/models/Shirt_Long_Sleeves/Shirt Long Sleeves.gltf"
+  );
   const modelRef = useRef(null);
   const currentRotationRef = useRef(0); // ✅ Se mantiene entre renders
 

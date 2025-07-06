@@ -3,9 +3,6 @@
 		"generator":"Khronos glTF Blender I/O v4.4.56",
 		"version":"2.0"
 	},
-	"extensionsUsed":[
-		"KHR_materials_transmission"
-	],
 	"scene":0,
 	"scenes":[
 		{
@@ -20,92 +17,61 @@
 			"mesh":0,
 			"name":"Shirt ",
 			"rotation":[
-				0.70710688829422,
+				0.7071070671081543,
 				0,
 				0,
-				0.7071066498756409
+				0.7071065306663513
 			],
 			"scale":[
 				0.009634547866880894,
-				0.009634546935558319,
-				0.009634546935558319
+				0.009634546004235744,
+				0.009634546004235744
 			]
 		}
 	],
 	"materials":[
 		{
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_transmission":{
-					"transmissionFactor":1
-				}
-			},
-			"name":"Front.001",
+			"name":"Front.008",
 			"pbrMetallicRoughness":{
 				"metallicFactor":0,
 				"roughnessFactor":2
 			}
 		},
 		{
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_transmission":{
-					"transmissionFactor":1
-				}
-			},
-			"name":"Sleeve_Right.001",
+			"name":"Sleeve_Right.007",
 			"pbrMetallicRoughness":{
 				"metallicFactor":0,
 				"roughnessFactor":2
 			}
 		},
 		{
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_transmission":{
-					"transmissionFactor":1
-				}
-			},
-			"name":"Sleeve_Left.001",
+			"name":"Sleeve_Left.007",
 			"pbrMetallicRoughness":{
 				"metallicFactor":0,
 				"roughnessFactor":2
 			}
 		},
 		{
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_transmission":{
-					"transmissionFactor":1
-				}
-			},
-			"name":"Back.001",
+			"name":"Back.007",
 			"pbrMetallicRoughness":{
 				"metallicFactor":0,
 				"roughnessFactor":2
 			}
 		},
 		{
-			"doubleSided":true,
-			"extensions":{
-				"KHR_materials_transmission":{
-					"transmissionFactor":1
-				}
-			},
-			"name":"Cuffs_Boundry.001",
+			"name":"Cuffs_Boundry.007",
 			"pbrMetallicRoughness":{
 				"metallicFactor":0,
 				"roughnessFactor":2
 			}
 		},
 		{
-			"doubleSided":true,
-			"name":"Bottons.001",
+			"name":"Bottons.007",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.03920000046491623,
-					0.04309999942779541,
-					0.04309999942779541,
+					0.8939096927642822,
+					1,
+					1,
 					1
 				],
 				"metallicFactor":0,
@@ -113,13 +79,12 @@
 			}
 		},
 		{
-			"doubleSided":true,
-			"name":"Bottons_Threads",
+			"name":"Bottons_Threads.006",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.05490000173449516,
-					0.0706000030040741,
-					0.0706000030040741,
+					0.7523314952850342,
+					1,
+					1,
 					1
 				],
 				"metallicFactor":0
@@ -128,7 +93,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Shirt OBJ.001",
+			"name":"Shirt OBJ.007",
 			"primitives":[
 				{
 					"attributes":{
