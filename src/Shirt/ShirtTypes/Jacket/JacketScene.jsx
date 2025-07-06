@@ -1,27 +1,22 @@
-import { Canvas } from "@react-three/fiber"; // Importa el componente Canvas para renderizar la escena 3D
-import { OrbitControls } from "@react-three/drei"; // Importa controles de cámara orbitables (rotación, zoom, etc.)
-import { Model } from "./JacketModel";
-import "./model.module.css"; // Importa los estilos CSS (aunque no se usan directamente en este fragmento)
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { Model } from "./JacketModel"; // Asegúrate de que la ruta esté correcta
 
 export const JacketScene = ({ color }) => {
-  // Declara un componente que recibe un color como prop
   return (
     <Canvas
-      camera={{ position: [0, 1.5, 5], fov: 30 }} // Configura la cámara: posición y campo de visión
-      style={{ background: "#333" }} // Establece el color de fondo del canvas
+      camera={{ position: [0, 1.5, 5], fov: 120 }}
+      style={{ background: "#333" }}
     >
-      {/* Luces para iluminar la escena */}
       <ambientLight intensity={0.5} />
-      {/* Luz ambiental para iluminar la escena de manera uniforme */}
-      <directionalLight position={[2, 5, 2]} intensity={1} />
-      {/* renderza el modelo de la camiseta con el color recibido por props */}
+      <directionalLight position={[2, 5, 2]} intensity={2} />
       <Model color={color} />
       <OrbitControls
-        minDistance={2} // Distancia mínima de la cámara al centro de la escena
-        maxDistance={7} // Distancia máxima de la cámara al centro de la escena
-        zoomSpeed={0.7} // Velocidad de zoom de la cámara
-        minPolarAngle={Math.PI / 2} // Ángulo mínimo de rotación vertical (en radianes)
-        maxPolarAngle={Math.PI / 2} // Ángulo máximo de rotación vertical (bloquea el eje vertical para que no rote hacia arriba o abajo)
+        minDistance={5}
+        maxDistance={6}
+        zoomSpeed={0.7}
+        minPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2}
       />
     </Canvas>
   );

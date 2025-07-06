@@ -12,7 +12,6 @@ export const ShirtLongSleeves = ({ color, rotation, speed, isRotating }) => {
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 5, 2]} intensity={1} />
 
-      {/* ✅ Pasamos todos los props de rotación al modelo */}
       <Model
         color={color}
         rotation={rotation}

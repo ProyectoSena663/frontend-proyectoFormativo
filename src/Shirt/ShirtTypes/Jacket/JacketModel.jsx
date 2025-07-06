@@ -19,6 +19,8 @@ export const Model = ({
     const center = box.getCenter(new Vector3());
     scene.position.sub(center);
 
+    scene.position.y = -16; // Ajustar la posición en Y
+
     // Recoge los meshes a eliminar
     const meshesToRemove = [];
     scene.traverse((object) => {
@@ -92,8 +94,8 @@ export const Model = ({
     <primitive
       ref={modelRef}
       object={scene}
-      scale={[0.025, 0.0233, 0.025]}
-      position={[0, 0, 0]}
+      scale={[0.11, 0.13, 0.09]}
+      position={[0, -1, 0]}
     />
   );
 };
