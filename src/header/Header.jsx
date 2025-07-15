@@ -1,8 +1,12 @@
 import "./Header.css";
 import { Sun } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { LoginLogica } from "../login/LoginLogica";  // importa el componente
 
 export const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="Header">
       <div className="cabecera">
@@ -28,8 +32,9 @@ export const Header = () => {
             <span className="word">Essence</span>
             <span className="word">Image</span>
           </h2>
-        </div>{" "}
+        </div>
       </div>
+
       <nav>
         <ul className="nav">
           <NavLink to="/">Home</NavLink>
@@ -37,9 +42,13 @@ export const Header = () => {
           <NavLink to="/gorra">Gorra</NavLink>
           <NavLink to="/pantalon">Pantalon</NavLink>
           <NavLink to="/outfit">Outfit</NavLink>
-          <Sun />
+          <li style={{ cursor: "pointer" }} onClick={() => setIsModalOpen(true)}>
+            <Sun />
+          </li>
         </ul>
       </nav>
+
+      <LoginLogica isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
