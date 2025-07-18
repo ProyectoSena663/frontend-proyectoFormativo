@@ -15,7 +15,7 @@
 
 // api.ts
 export const loginUser = async (credentials: { email: string; password: string }) => {
-  const response = await fetch('http://localhost:10101/Usuario/login', {
+  const response = await fetch('http://localhost:10101/usuario/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(credentials),
