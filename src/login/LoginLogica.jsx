@@ -29,25 +29,49 @@ export const LoginLogica = ({ isOpen, onClose }) => {
         <button className="closeBTN" onClick={onClose}>
           X
         </button>
-        <h2 style={{ color: "black" }}>Iniciar Sesión</h2>
         <form className="formularioLogin">
-          <label>Email:</label>
-          <input
-            type="email"
-            placeholder="ejemplo@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            placeholder="********"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit" onClick={HandleSubmit}>
-            Entrar
-          </button>
+          <h2 style={{ color: "#ccc" }}>Iniciar Sesión</h2>
+          <section className="inputsss">
+            <label>Usuario:</label>
+            <input
+              className="inputEmail"
+              type="email"
+              placeholder="ejemplo@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <br />
+            <label>Contraseña:</label>
+            <input
+              className="inputEmail"
+              type="password"
+              placeholder="********"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </section>
+          <section className="redesSociales">
+            <button
+              className="botonEntrar"
+              type="submit"
+              onClick={HandleSubmit}
+            >
+              Iniciar Sesión
+            </button>
+            <fieldset className="divider-legend">
+              <legend>
+                O continua con
+              </legend>
+            </fieldset>
+          </section>
+          <section className="botonesGoogleYFacebook">
+            <button className="redes">Google</button>
+            <button className="redes">Facebook</button>
+          </section>
+          <section className="footerLogin">
+            <p className="pes">¿No tienes cuenta?</p>
+            <p ><a className="pes2" href="#">Regístrate aquí</a></p>
+          </section>
         </form>
       </div>
     </div>

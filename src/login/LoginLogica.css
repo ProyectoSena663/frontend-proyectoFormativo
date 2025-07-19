@@ -1,25 +1,24 @@
 .contenedor {
   position: absolute;
-  top: 3rem;
+  top: 0rem;
   left: 0;
   z-index: 9999; /* se asegura que esté encima */
   width: 100%;
-  height: 95%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.719);
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .contenedorlogin {
   display: flex;
   justify-content: center;
-  text-align: center;
+  align-items: center;
   flex-direction: column;
-  background: gray;
+  background: #1e1e1e;
   height: 30rem;
-  width: 20rem;
+  width: 25rem;
   border-radius: 10px;
   position: relative;
   left: 0;
@@ -34,18 +33,22 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 7rem;
-  height: 27rem;
-  width: 20rem;
-  gap: 1rem;
+  /* padding-bottom: 7rem; */
+  height: 29rem;
+  width: 24rem;
+  /* gap: 1rem; */
+  border-radius: 10px;
+  background-color: #292e38;
   
-  & button{
-    width: 10rem;
+
+  & .botonEntrar {
+    margin-top: 1rem;
+    width: 21rem;
     height: 2rem;
     border-radius: 5px;
     border: none;
-    background-color: black;
-    color: white;
+    background-color: #ddd;
+    color: #1e1e1e;
     font-weight: bolder;
     cursor: pointer;
     transition: background-color 0.8s ease;
@@ -55,19 +58,33 @@
     }
   }
 
-  & input {
-    width: 16rem;
+  & .inputEmail {
+    width: 21rem;
     height: 2rem;
     border-radius: 5px;
     border: none;
     padding: 10px;
+    background-color: #21242d;
+    border: 1px solid #464646;
+    outline: none;
   }
 
   & label {
-    color: black;
-    font-size: 1.2rem;
+    color: #ccc;
+    font-size: 1rem;
+    padding-bottom: .2rem;
     font-weight: bolder;
   }
+}
+
+.inputsss {
+  /*background-color: red;*/
+  height: 10rem;
+  width: 21rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .closeBTN {
@@ -82,4 +99,56 @@
   width: 28px;
   height: 28px;
   cursor: pointer;
+}
+
+/* 1️⃣ - Contenedor */
+.divider-legend {
+  border: none;                 /* quitamos los 4 bordes */
+  border-top: 1px solid #686767;   /* dejamos solo la línea superior */
+  margin: 1.5rem 0;             /* separación vertical */
+  padding: 0;                   /* sin padding para que la línea quede plana */
+  position: relative;           /* referencia para el legend */
+  text-align: center;           /* centra inline-block del legend */
+}
+
+/* 2️⃣ - Texto */
+.divider-legend > legend {
+  display: inline-block;        /* respeta ancho del texto */
+  padding: 0 .75em;             /* espacio a izquierda/dcha. */
+  /* font-size: .9rem; */
+  color: #a19898;
+  transform: translateY(-10%);  /* baja el texto hasta cortar la línea */
+}
+
+.botonesGoogleYFacebook{
+  display: flex;
+  gap: 2rem;
+  
+  & .redes{
+    width: 8rem;
+    height: 2rem;
+    color: white;
+    background-color: #1e1e1e;
+    cursor: pointer;
+    border:1px solid #464646;
+  }
+}
+
+.footerLogin{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+
+  & .pes{
+    color: #a19898;
+    font-size: 15px;
+  }
+  
+  & .pes2{
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 12px;
+  }
 }
