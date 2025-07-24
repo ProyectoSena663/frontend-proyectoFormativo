@@ -1,3 +1,5 @@
+import { getTokenExpiration } from "../utils/tokenUtils";
+
 // export const authApi = async () => {
 //     const response = await fetch('http://localhost:10101/Usuario/login', {
 //         method: 'POST',
@@ -23,6 +25,8 @@ export const loginUser = async (credentials: { email: string; password: string }
 
   const data = await response.json();
   console.log(data.token)
+  console.log(getTokenExpiration(data.token));
+  
 
   if (!response.ok) {
     const mensaje = data.errors ? data.errors.map((err:any) => err.errores.join(', ')).join('\n') : data.message || 'Error desconocido al iniciar sesion';
