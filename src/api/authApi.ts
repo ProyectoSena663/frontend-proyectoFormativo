@@ -22,6 +22,7 @@ export const loginUser = async (credentials: { email: string; password: string }
   });
 
   const data = await response.json();
+  console.log(data.token)
 
   if (!response.ok) {
     const mensaje = data.errors ? data.errors.map((err:any) => err.errores.join(', ')).join('\n') : data.message || 'Error desconocido al iniciar sesion';
