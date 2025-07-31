@@ -1,6 +1,8 @@
 import "./LoginLogica.css";
 import { useState } from "react";
 import { loginUser } from "../../api/authApi";
+import {decodeToken}  from "../../utils/tokenUtils";
+
 
 export const LoginLogica = ({ onChangeForm }) => {
   const [email, setEmail] = useState("");
@@ -16,7 +18,18 @@ export const LoginLogica = ({ onChangeForm }) => {
 
     try {
       const response = await loginUser({ email, password });
-      alert(`bienvenido ${response}`); // Imprimir el mensaje de bienvenida en la consola del navegadorresponse);
+      const token = response.token;
+      sessionStorage.setItem("token", token);
+
+      const payload = decodeToken(token);
+      if (!payload) {
+        alert("Token inválido o expirado.");
+        return;
+      }
+
+      sessionStorage.setItem("usuario", JSON.stringify(payload))
+      alert(`bienvenido ${payload.nombre}`);
+
     } catch (error) {
       alert(`${error.message}`);
     }

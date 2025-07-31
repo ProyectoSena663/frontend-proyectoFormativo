@@ -1,4 +1,4 @@
-import { getTokenExpiration } from "../utils/tokenUtils";
+import { decodeToken } from "../utils/tokenUtils";
 
 // export const authApi = async () => {
 //     const response = await fetch('http://localhost:10101/Usuario/login', {
@@ -25,7 +25,7 @@ export const loginUser = async (credentials: { email: string; password: string }
 
   const data = await response.json();
   console.log(data.token)
-  console.log(getTokenExpiration(data.token));
+  console.log(decodeToken(data.token));
   
 
   if (!response.ok) {
