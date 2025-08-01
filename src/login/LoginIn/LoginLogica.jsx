@@ -1,8 +1,7 @@
 import "./LoginLogica.css";
 import { useState } from "react";
 import { loginUser } from "../../api/authApi";
-import {decodeToken}  from "../../utils/tokenUtils";
-
+import { decodeToken } from "../../utils/tokenUtils";
 
 export const LoginLogica = ({ onChangeForm }) => {
   const [email, setEmail] = useState("");
@@ -27,9 +26,8 @@ export const LoginLogica = ({ onChangeForm }) => {
         return;
       }
 
-      sessionStorage.setItem("usuario", JSON.stringify(payload))
-      alert(`bienvenido ${payload.nombre}`);
-
+      sessionStorage.setItem("usuario", JSON.stringify(payload));
+      alert(`bienvenido ${payload.data.nombre}`);
     } catch (error) {
       alert(`${error.message}`);
     }
