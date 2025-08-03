@@ -1,7 +1,7 @@
 import "./Outfit3D.css";
 import { Canvas } from "@react-three/fiber"; // Importa el componente Canvas para renderizar la escena 3D
 import { OrbitControls } from "@react-three/drei"; // Importa controles de cámara orbitables (rotación, zoom, etc.)
-import { OufitModel } from "./OufitModel"; // Importa el componente del modelo de camiseta
+import { OutfitModel } from "./OufitModel"; // Importa el modelo de la camiseta
 
 export const OufitEcene = ({ color }) => {
   // Declara un componente que recibe un color como prop
@@ -16,7 +16,7 @@ export const OufitEcene = ({ color }) => {
         {/* Luz ambiental para iluminar la escena de manera uniforme */}
         <directionalLight position={[2, 5, 2]} intensity={1} />
         {/* renderza el modelo de la camiseta con el color recibido por props */}
-        <OufitModel />
+        <OutfitModel />
         <OrbitControls
           minDistance={2} // Distancia mínima de la cámara al centro de la escena
           maxDistance={7} // Distancia máxima de la cámara al centro de la escena

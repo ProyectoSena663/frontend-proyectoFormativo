@@ -1,10 +1,79 @@
-import { useGLTF } from "@react-three/drei"; // Importa el hook para cargar modelos GLTF
-import { useEffect } from "react"; // Importa useEffect para ejecutar efectos secundarios en React
+import { useGLTF } from "@react-three/drei";
+import { useEffect, useRef } from "react";
+import { Mesh, MeshStandardMaterial, Box3, Vector3 } from "three";
 
-export const OufitModel = () => {
-  const { scene } = useGLTF("/models/MANI.glb"); // Carga el modelo GLTF y extrae la escena
+export const OutfitModel = ({ color = "white", rotation = 0, speed = 0, isRotating = false }) => {
+  const { scene } = useGLTF("/models/Maniqui_model/Untitled.gltf");
+  const modelRef = useRef(null);
 
- 
+  useEffect(() => {
+    if (scene) {
+      // Centrar el modelo
+      const box = new Box3().setFromObject(scene);
+      const center = box.getCenter(new Vector3());
+      scene.position.sub(center);
 
-  return <primitive object={scene} scale={3} position={[0, .2, 0]} />; // Renderiza el modelo 3D con una escala y posición específicas
+      scene.traverse((object) => {
+        const mesh = object;
+        if (mesh.isMesh) {
+          // Verificar si el material es un array o un solo material
+          if (Array.isArray(mesh.material)) {
+            mesh.material.forEach((mat) => {
+              if (mat instanceof MeshStandardMaterial) {
+                mat.color.set(color);
+              }
+            });
+          } else {
+            if (mesh.material instanceof MeshStandardMaterial) {
+              mesh.material.color.set(color);
+            }
+          }
+        }
+      });
+    }
+  }, [color, scene]);
+
+  useEffect(() => {
+    if (!isRotating && modelRef.current) {
+      modelRef.current.rotation.y = (rotation * Math.PI) / 180;
+    }
+  }, [rotation, isRotating]);
+
+  useEffect(() => {
+    let animationFrameId;
+    let lastTime = 0;
+    let currentRotation = 0;
+
+    const animate = (time) => {
+      if (lastTime === 0) {
+        lastTime = time;
+      }
+      const deltaTime = time - lastTime;
+      lastTime = time;
+
+      if (isRotating && modelRef.current) {
+        // Convertir la velocidad del range (0-100) a una velocidad de rotación más adecuada
+        const rotationSpeed = (speed / 100) * 0.01;
+        currentRotation += rotationSpeed * deltaTime;
+        modelRef.current.rotation.y = currentRotation;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [isRotating, speed]);
+
+  return (
+    <primitive
+  ref={modelRef}
+  object={scene}
+  scale={[0.04, 0.04, 0.04]}    // Sin deformar
+  position={[0, 0, 0]} // Centro exacto
+/>
+  );
 };
