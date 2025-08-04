@@ -16,7 +16,7 @@ export const OufitEcene = ({ color }) => {
         {/* Luz ambiental para iluminar la escena de manera uniforme */}
         <directionalLight position={[2, 5, 2]} intensity={1} />
         {/* renderza el modelo de la camiseta con el color recibido por props */}
-        <OutfitModel />
+        <OutfitModel color={color}/>
         <OrbitControls
           minDistance={2} // Distancia mínima de la cámara al centro de la escena
           maxDistance={7} // Distancia máxima de la cámara al centro de la escena
