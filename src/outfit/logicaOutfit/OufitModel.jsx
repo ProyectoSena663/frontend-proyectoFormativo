@@ -2,36 +2,39 @@ import { useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { Mesh, MeshStandardMaterial, Box3, Vector3 } from "three";
 
-export const OutfitModel = ({ color = "white", rotation = 0, speed = 0, isRotating = false }) => {
-  const { scene } = useGLTF("/models/Maniqui_model/Untitled.gltf");
+export const OutfitModel = ({
+  color = "white",
+  rotation = 0,
+  speed = 0,
+  isRotating = false,
+}) => {
+  const { nodes } = useGLTF("/models/Maniqui_model/Untitled.gltf");
   const modelRef = useRef(null);
 
   useEffect(() => {
-    if (scene) {
-      // Centrar el modelo
-      const box = new Box3().setFromObject(scene);
+    if (modelRef.current) {
+      const box = new Box3().setFromObject(modelRef.current);
       const center = box.getCenter(new Vector3());
-      scene.position.sub(center);
+      modelRef.current.position.sub(center);
 
-      scene.traverse((object) => {
-        const mesh = object;
-        if (mesh.isMesh) {
-          // Verificar si el material es un array o un solo material
-          if (Array.isArray(mesh.material)) {
-            mesh.material.forEach((mat) => {
+      modelRef.current.traverse((object) => {
+        if (object.isMesh) {
+          const material = object.material;
+          if (Array.isArray(material)) {
+            material.forEach((mat) => {
               if (mat instanceof MeshStandardMaterial) {
                 mat.color.set(color);
               }
             });
           } else {
-            if (mesh.material instanceof MeshStandardMaterial) {
-              mesh.material.color.set(color);
+            if (material instanceof MeshStandardMaterial) {
+              material.color.set(color);
             }
           }
         }
       });
     }
-  }, [color, scene]);
+  }, [color]);
 
   useEffect(() => {
     if (!isRotating && modelRef.current) {
@@ -69,11 +72,20 @@ export const OutfitModel = ({ color = "white", rotation = 0, speed = 0, isRotati
   }, [isRotating, speed]);
 
   return (
-    <primitive
-  ref={modelRef}
-  object={scene}
-  scale={[0.04, 0.04, 0.04]}    // Sin deformar
-  position={[0, 0, 0]} // Centro exacto
-/>
+    <group scale={[0.001, 0.001, 0.001]} ref={modelRef}>
+      {/*Maniqui*/}
+      {nodes["Cube.001"] && <primitive object={nodes["Cube.001"]} />}
+
+      {/*Camiseta*/}
+      {nodes["T_shirt_gltf.zip_Scene_Node_0.001"] && (
+        <primitive object={nodes["T_shirt_gltf.zip_Scene_Node_0.001"]} />
+      )}
+
+      {/*Pantalon*/}
+      {nodes["RootNode"] && <primitive object={nodes["RootNode"]} />}
+
+      {/*Gorra*/}
+      {nodes["Sketchfab_model.003"] && <primitive object={nodes["Sketchfab_model.003"]} />}
+    </group>
   );
 };
