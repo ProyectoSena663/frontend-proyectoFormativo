@@ -3,7 +3,10 @@ import { useEffect, useRef } from "react";
 import { MeshStandardMaterial, Box3, Vector3 } from "three";
 
 export const OutfitModel = ({
-  color = "red",
+  colorCamisaPantalon = "blue",
+  colorGorra = "red",
+  colorManiqui = "white",
+
   rotation = 0,
   speed = 0,
   isRotating = false,
@@ -11,40 +14,44 @@ export const OutfitModel = ({
   const { nodes } = useGLTF("/models/Maniqui_model/Untitled.gltf");
   const modelRef = useRef(null);
 
-  // Centrar el modelo y aplicar color
   useEffect(() => {
     if (modelRef.current) {
       const box = new Box3().setFromObject(modelRef.current);
       const center = box.getCenter(new Vector3());
       modelRef.current.position.sub(center);
 
-      modelRef.current.traverse((object) => {
-        if (object.isMesh) {
-          const material = object.material;
-          if (Array.isArray(material)) {
-            material.forEach((mat) => {
-              if (mat instanceof MeshStandardMaterial) {
-                mat.color.set(color);
-              }
-            });
-          } else {
-            if (material instanceof MeshStandardMaterial) {
-              material.color.set(color);
-            }
-          }
-        }
-      });
-    }
-  }, [color]);
+      // Voltea el modelo para que quede de frente
+      modelRef.current.rotation.y = Math.PI;
 
-  // Rotación manual
+      // Aplica color al grupo maniqui (camiseta + pantalón)
+      const group = nodes["maniquiGroup"];
+      if (group) {
+        group.traverse((obj) => {
+          if (obj.isMesh && obj.material instanceof MeshStandardMaterial) {
+            obj.material.color.set(colorCamisaPantalon);
+          }
+        });
+      }
+
+      // Aplica color a la gorra
+      const gorra = nodes["gorra002__0"];
+      if (gorra?.material instanceof MeshStandardMaterial) {
+        gorra.material.color.set(colorGorra);
+      }
+
+      const maniqui = nodes["Cube001"];
+      if (maniqui?.material instanceof MeshStandardMaterial) {
+        maniqui.material.color.set(colorManiqui);
+      }
+    }
+  }, [colorCamisaPantalon, colorGorra]);
+
   useEffect(() => {
     if (!isRotating && modelRef.current) {
       modelRef.current.rotation.y = (rotation * Math.PI) / 180;
     }
   }, [rotation, isRotating]);
 
-  // Rotación automática
   useEffect(() => {
     let animationFrameId;
     let lastTime = 0;
@@ -65,19 +72,15 @@ export const OutfitModel = ({
     };
 
     animationFrameId = requestAnimationFrame(animate);
-    console.log(Object.keys(nodes));
     return () => cancelAnimationFrame(animationFrameId);
   }, [isRotating, speed]);
 
   return (
     <group scale={[0.01, 0.01, 0.01]} ref={modelRef}>
-      {/* Camiseta y pantalon */}
-      {nodes["maniquiGroup"] && <primitive object={nodes["maniquiGroup"]} />}
-
-      {/* Gorra */}
+      {nodes["maniquiGroup"] && (
+        <primitive object={nodes["maniquiGroup"]} position={[0, 0, 0]} />
+      )}
       {nodes["gorra002__0"] && <primitive object={nodes["gorra002__0"]} />}
-
-      {/* Maniqui */}
       {nodes["Cube001"] && <primitive object={nodes["Cube001"]} />}
     </group>
   );

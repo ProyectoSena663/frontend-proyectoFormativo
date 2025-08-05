@@ -18,8 +18,8 @@ export const OufitEcene = ({ color }) => {
         {/* renderza el modelo de la camiseta con el color recibido por props */}
         <OutfitModel color={color}/>
         <OrbitControls
-          minDistance={2} // Distancia mínima de la cámara al centro de la escena
-          maxDistance={7} // Distancia máxima de la cámara al centro de la escena
+          minDistance={1.2} // Distancia mínima de la cámara al centro de la escena
+          maxDistance={1.4} // Distancia máxima de la cámara al centro de la escena
           zoomSpeed={0.7} // Velocidad de zoom de la cámara
           minPolarAngle={Math.PI / 2} // Ángulo mínimo de rotación vertical (en radianes)
           maxPolarAngle={Math.PI / 2} // Ángulo máximo de rotación vertical (bloquea el eje vertical para que no rote hacia arriba o abajo)
