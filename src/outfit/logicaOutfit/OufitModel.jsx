@@ -3,10 +3,9 @@ import { useEffect, useRef } from "react";
 import { MeshStandardMaterial, Box3, Vector3 } from "three";
 
 export const OutfitModel = ({
-  colorCamisaPantalon = "blue",
-  colorGorra = "red",
+  colorCamisaPantalon = "white",
+  colorGorra = "white",
   colorManiqui = "white",
-
   rotation = 0,
   speed = 0,
   isRotating = false,

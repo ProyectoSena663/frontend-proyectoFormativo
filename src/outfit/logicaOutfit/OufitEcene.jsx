@@ -3,8 +3,10 @@ import { Canvas } from "@react-three/fiber"; // Importa el componente Canvas par
 import { OrbitControls } from "@react-three/drei"; // Importa controles de cámara orbitables (rotación, zoom, etc.)
 import { OutfitModel } from "./OufitModel"; // Importa el modelo de la camiseta
 
-export const OufitEcene = ({ color }) => {
+export const OufitEcene = ({ colorCamisaPantalon, colorGorra }) => {
   // Declara un componente que recibe un color como prop
+
+  const colorGorra2 = sessionStorage.getItem("colorGorra") || "white"; // Obtiene el color de la gorra del sessionStorage o usa un valor por defecto
   return (
     <>
       <Canvas
@@ -16,7 +18,10 @@ export const OufitEcene = ({ color }) => {
         {/* Luz ambiental para iluminar la escena de manera uniforme */}
         <directionalLight position={[2, 5, 2]} intensity={1} />
         {/* renderza el modelo de la camiseta con el color recibido por props */}
-        <OutfitModel color={color}/>
+        <OutfitModel
+          colorCamisaPantalon={colorCamisaPantalon}
+          colorGorra={colorGorra2}
+        />
         <OrbitControls
           minDistance={1.2} // Distancia mínima de la cámara al centro de la escena
           maxDistance={1.4} // Distancia máxima de la cámara al centro de la escena

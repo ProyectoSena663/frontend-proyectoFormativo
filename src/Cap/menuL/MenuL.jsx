@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Scene } from "../Cap-3D/Cap-Scene";
+import { OufitEcene } from "../../outfit/logicaOutfit/OufitEcene";
 import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
 import { Cap } from "../../assets/svg/Cap/L-Items/Cap";
 import { Size } from "../../assets/svg/Cap/L-Items/Size";
 import "./MenuL.css";
+import { useOutfit } from "../../outfit/logicaOutfit/OutfitProvider";
 
 export const MenuL = () => {
-  const [color, setColor] = useState("#ffffff"); // Estado para el color
+  const { colors, setColors } = useOutfit();
   const [visible, setVisible] = useState(false); // Estado para la visibilidad del menú
   // Estados para los modales
   const [modalOpen, setModalOpen] = useState(false); // Modal para el color
@@ -16,7 +18,10 @@ export const MenuL = () => {
   const [modalOpen5, setModalOpen5] = useState(false);
 
   const newColor = (color) => {
-    setColor(color);
+    setColors((prev) => ({
+      ...prev,
+      gorra: color,
+    }));
   };
 
   const handleModal2Click = (e) => {
@@ -84,8 +89,10 @@ export const MenuL = () => {
                 className="bt"
                 name="col"
                 id="col"
-                value={color}
-                onChange={(e) => setColor(e.target.value)}
+                value={colors.gorra}
+                onChange={(e) =>
+                  setColors((prev) => ({ ...prev, gorra: e.target.value }))
+                }
               />
               <button className="close" onClick={() => setModalOpen(false)}>
                 X
@@ -166,7 +173,10 @@ export const MenuL = () => {
       )}
       {modalOpen4 && (
         <div className="modal-overlay4" onClick={() => setModalOpen4(false)}>
-          <div className="Cap-modal-content4" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="Cap-modal-content4"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h3>Talla</h3>
             <button className="close4" onClick={() => setModalOpen4(false)}>
               X
@@ -203,7 +213,8 @@ export const MenuL = () => {
         </div>
       )}
       {/* Pasamos el color a la escena */}
-      <Scene color={color} />
+      <Scene color={colors.gorra} />
+      <OufitEcene colorGorra={colors.gorra} />
     </div>
   );
 };
