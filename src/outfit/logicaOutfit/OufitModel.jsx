@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { MeshStandardMaterial, Box3, Vector3 } from "three";
 
 export const OutfitModel = ({
-  color = "white",
+  color = "red",
   rotation = 0,
   speed = 0,
   isRotating = false,
@@ -71,11 +71,13 @@ export const OutfitModel = ({
 
   return (
     <group scale={[0.01, 0.01, 0.01]} ref={modelRef}>
-      {/* Maniquí */}
+      {/* Camiseta y pantalon */}
       {nodes["maniquiGroup"] && <primitive object={nodes["maniquiGroup"]} />}
 
       {/* Gorra */}
       {nodes["gorra002__0"] && <primitive object={nodes["gorra002__0"]} />}
+
+      {/* Maniqui */}
       {nodes["Cube001"] && <primitive object={nodes["Cube001"]} />}
     </group>
   );
