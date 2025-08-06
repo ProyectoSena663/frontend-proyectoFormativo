@@ -5,10 +5,9 @@ import { Palette, UserPen, Ellipsis, VenusAndMars, Shirt } from "lucide-react";
 import { Cap } from "../../assets/svg/Cap/L-Items/Cap";
 import { Size } from "../../assets/svg/Cap/L-Items/Size";
 import "./MenuL.css";
-import { useOutfit } from "../../outfit/logicaOutfit/OutfitProvider";
 
 export const MenuL = () => {
-  const { colors, setColors } = useOutfit();
+  const [colors, setColors] = useState("white");
   const [visible, setVisible] = useState(false); // Estado para la visibilidad del menú
   // Estados para los modales
   const [modalOpen, setModalOpen] = useState(false); // Modal para el color
@@ -17,11 +16,10 @@ export const MenuL = () => {
   const [modalOpen4, setModalOpen4] = useState(false);
   const [modalOpen5, setModalOpen5] = useState(false);
 
+  sessionStorage.setItem("colorGorra", colors); // Guarda el color de la gorra en sessionStorage
+
   const newColor = (color) => {
-    setColors((prev) => ({
-      ...prev,
-      gorra: color,
-    }));
+    setColors(color);
   };
 
   const handleModal2Click = (e) => {
@@ -89,10 +87,8 @@ export const MenuL = () => {
                 className="bt"
                 name="col"
                 id="col"
-                value={colors.gorra}
-                onChange={(e) =>
-                  setColors((prev) => ({ ...prev, gorra: e.target.value }))
-                }
+                value={colors}
+                onChange={(e) => setColors(e.target.value)}
               />
               <button className="close" onClick={() => setModalOpen(false)}>
                 X
@@ -213,8 +209,8 @@ export const MenuL = () => {
         </div>
       )}
       {/* Pasamos el color a la escena */}
-      <Scene color={colors.gorra} />
-      <OufitEcene colorGorra={colors.gorra} />
+      <Scene color={colors} />
+      <OufitEcene colorGorra={colors} />
     </div>
   );
 };

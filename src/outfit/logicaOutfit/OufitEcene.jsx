@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber"; // Importa el componente Canvas par
 import { OrbitControls } from "@react-three/drei"; // Importa controles de cámara orbitables (rotación, zoom, etc.)
 import { OutfitModel } from "./OufitModel"; // Importa el modelo de la camiseta
 
-export const OufitEcene = ({ colorCamisaPantalon, colorGorra }) => {
+export const OufitEcene = ({ colorCamisaPantalon }) => {
   // Declara un componente que recibe un color como prop
 
   const colorGorra2 = sessionStorage.getItem("colorGorra") || "white"; // Obtiene el color de la gorra del sessionStorage o usa un valor por defecto
