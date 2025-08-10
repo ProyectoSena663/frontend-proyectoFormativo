@@ -7,6 +7,8 @@ export const OufitEcene = ({ colorCamisaPantalon }) => {
   // Declara un componente que recibe un color como prop
 
   const colorGorra2 = sessionStorage.getItem("colorGorra") || "white"; // Obtiene el color de la gorra del sessionStorage o usa un valor por defecto
+  const colorCamisetaPantalon =
+    sessionStorage.getItem("colorCamisetaPantalon") || "white"; // Obtiene el color de la camiseta y pantalón del sessionStorage o usa un valor por defecto
   return (
     <>
       <Canvas
@@ -19,7 +21,7 @@ export const OufitEcene = ({ colorCamisaPantalon }) => {
         <directionalLight position={[2, 5, 2]} intensity={1} />
         {/* renderza el modelo de la camiseta con el color recibido por props */}
         <OutfitModel
-          colorCamisaPantalon={colorCamisaPantalon}
+          colorCamisaPantalon={colorCamisetaPantalon}
           colorGorra={colorGorra2}
         />
         <OrbitControls

@@ -5,6 +5,7 @@ import { HoodieIcon } from "../../assets/svg/Cap/L-Items/Hoodie_Icon";
 import { JacketIcon } from "../../assets/svg/Cap/L-Items/Jacket_Icon";
 import { T_Shirt_Icon } from "../../assets/svg/Cap/L-Items/T_Shirt_Icon";
 import { Tank_Top_Icon } from "../../assets/svg/Cap/L-Items/Tank_Top_Icon";
+import { OufitEcene } from "../../outfit/logicaOutfit/OufitEcene";
 import "./MenuL.css";
 
 export const MenuL = ({
@@ -24,6 +25,8 @@ export const MenuL = ({
   const [modalOpen3, setModalOpen3] = useState(false);
   const [modalOpen4, setModalOpen4] = useState(false);
   const [modalOpen5, setModalOpen5] = useState(false);
+
+  sessionStorage.setItem("colorCamisetaPantalon", color);
 
   // Handlers para rotación
   const handleRotation = (deg) => {
@@ -267,6 +270,8 @@ export const MenuL = ({
           </div>
         </div>
       )}
+
+      {/* <OufitEcene colorCamisaPantalon={color} /> */}
     </div>
   );
 };
