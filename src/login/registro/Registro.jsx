@@ -1,15 +1,40 @@
 import { useState } from "react";
 import "./Registro.css";
+import { registroUser } from "../../api/authApi";
 
 export const Registro = ({ onChangeForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const HandleSubmit = (e) => {
+  const HandleSubmit = async(e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica de registro
+
+    if(!email.trim() || !password.trim() || !confirmPassword.trim()) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+
+    if(password !== confirmPassword) {
+      alert("Las contraseñas no coinciden.");
+      return;
+    }
+
+    try{
+      const user = await registroUser(email, password,confirmPassword);
+      alert(`Usuario registrado: ${user.email}`);
+      //estos lo que haran es que limpiaran los campos del formulario
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      //y esta lo que hara es que se ira al login 
+      onChangeForm();
+    }catch(error){
+      alert("Error al registrar el usuario.");
+    }
   };
+    // Aquí puedes agregar la lógica de registro
+
 
   return (
     
