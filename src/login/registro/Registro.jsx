@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Registro.css";
-import {registerUser} from "../../api/authApi"
+import { registerUser } from "../../api/authApi";
 
 export const Registro = ({ onChangeForm }) => {
   const [email, setEmail] = useState("");
@@ -21,8 +21,8 @@ export const Registro = ({ onChangeForm }) => {
     }
 
     try{
-      const user = await registerUser(email, password,confirmPassword);
-      alert(`Usuario registrado: ${user.email}`);
+      const result = await registerUser({ email, password });
+      alert(`Usuario registrado exitosamente: ${result.message}`);
       //estos lo que haran es que limpiaran los campos del formulario
       setEmail("");
       setPassword("");
@@ -30,7 +30,8 @@ export const Registro = ({ onChangeForm }) => {
       //y esta lo que hara es que se ira al login 
       onChangeForm();
     }catch(error){
-      alert("Error al registrar el usuario.", error.message);
+      alert(`Error al registrar el usuario: ${error.message}`);
+      console.error("Registration error:", error);
     }
   };
     // Aquí puedes agregar la lógica de registro

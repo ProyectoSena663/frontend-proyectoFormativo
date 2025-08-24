@@ -10,7 +10,7 @@ export const OutfitModel = ({
   speed = 0,
   isRotating = false,
 }) => {
-  const { nodes } = useGLTF("/models/Maniqui_model/Untitled2.gltf");
+  const { nodes } = useGLTF("/models/Maniqui_model/Untitled.gltf");
   const modelRef = useRef(null);
 
   useEffect(() => {
@@ -76,13 +76,14 @@ export const OutfitModel = ({
 
   return (
     <group scale={[0.01, 0.01, 0.01]} ref={modelRef}>
-      {/* {nodes["maniquiGroup"] && (
+      {nodes["maniquiGroup"] && (
         <primitive object={nodes["maniquiGroup"]} position={[0, 0, 0]} />
-      )} */}
-      {nodes["gorra002__0"] && <primitive object={nodes["gorra002__0"]} />}
+      )}
       {nodes["RootNode.004"] && (
-        <primitive object={nodes["RootNode.004"]} position={[0, 0, 0]} />)}
-      {/* {nodes["Cube001"] && <primitive object={nodes["Cube001"]} />} */}
+        <primitive object={nodes["RootNode.004"]} position={[0, 0, 0]} />
+      )}
+      {nodes["Cube001"] && <primitive object={nodes["Cube001"]} />}
+      {nodes["gorra002__0"] && <primitive object={nodes["gorra002__0"]} />}
     </group>
   );
 };
