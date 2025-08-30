@@ -43,10 +43,15 @@ export const Header = () => {
           <NavLink to="/pantalon">Pantalon</NavLink>
           <NavLink to="/outfit">Outfit</NavLink>
           <li
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", listStyle: "none" }}
             onClick={() => setIsModalOpen(true)}
           >
             <Sun style={{ color: "white" }} />
+          </li>
+          <li style={{ color: "white", listStyle: "none" }}>
+            <button className="botonLogin" onClick={() => setIsModalOpen(true)}>
+              Login
+            </button>
           </li>
         </ul>
       </nav>
